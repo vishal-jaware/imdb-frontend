@@ -16,8 +16,7 @@ function Profile() {
         console.log(user);
         
       } catch (error) {
-  console.log("PROFILE ERROR:", error);
-  return res.status(500).json({ message: "Failed to fetch profile" });
+  cconsole.log("PROFILE ERROR:", error.response?.data || error.message);
 }
     };
 

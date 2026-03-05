@@ -53,9 +53,9 @@ function Home() {
   const addToWatchlist = async (movie) => {
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/watchlist/${movie._id}`,
-        {},
-        { withCredentials: true },
+  `https://imdb-backend-e4xg.onrender.com/api/watchlist/${movie._id}`,
+  {},
+  { withCredentials: true }
       );
 
       alert(res.data.message);
