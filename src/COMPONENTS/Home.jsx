@@ -34,16 +34,14 @@ function Home() {
   };
 
   //  FETCH TOP RATED
-const fetchTopRated = async () => {
-  try {
-    let res = await axios.get(
-      "https://imdb-backend-e4xg.onrender.com/movies/top-rated"
-    );
-    setTopRated(res.data.movies);
-  } catch (error) {
-    console.log(error);
-  }
-};
+  const fetchTopRated = async () => {
+    try {
+      let res = await axios.get("https://imdb-backend-e4xg.onrender.com/api/top-rated");
+      setTopRated(res.data.movies);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //  OPEN MODAL
   const openDetails = (movie) => {
@@ -55,7 +53,7 @@ const fetchTopRated = async () => {
   const addToWatchlist = async (movie) => {
     try {
       const res = await axios.post(
-        `https://imdb-backend-e4xg.onrender.com/api/watchlist/${movie._id}`,
+        `http://localhost:8000/api/watchlist/${movie._id}`,
         {},
         { withCredentials: true },
       );
