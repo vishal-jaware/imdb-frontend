@@ -10,7 +10,7 @@ function Logout() {
     const logoutUser = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:8000/api/userlogout",
+          "https://imdb-backend-e4xg.onrender.com/api/userlogout",
           {},
           { withCredentials: true }
         );

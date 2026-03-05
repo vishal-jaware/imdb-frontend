@@ -37,7 +37,7 @@ const fetchMovies = async ()=>{
 try{
 
 let res = await axios.get(
-`http://localhost:8000/api/movies?page=${page}&limit=12&search=${search}`
+`https://imdb-backend-e4xg.onrender.com/api/movies?page=${page}&limit=12&search=${search}`
 )
 
 setMovies(res.data.movies)
@@ -70,7 +70,7 @@ try{
 if(editId){
 
 await axios.put(
-`http://localhost:8000/api/updatemovie/${editId}`,
+`https://imdb-backend-e4xg.onrender.com/api/updatemovie/${editId}`,
 movie,
 {withCredentials:true}
 )
@@ -81,7 +81,7 @@ setEditId(null)
 }else{
 
 await axios.post(
-"http://localhost:8000/api/addmovie",
+"https://imdb-backend-e4xg.onrender.com/api/addmovie",
 movie,
 {withCredentials:true}
 )
@@ -106,7 +106,7 @@ const handleDelete = async(id)=>{
 try{
 
 await axios.delete(
-`http://localhost:8000/api/deletemovie/${id}`,
+`https://imdb-backend-e4xg.onrender.com/api/deletemovie/${id}`,
 {withCredentials:true}
 )
 

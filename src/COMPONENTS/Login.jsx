@@ -13,7 +13,7 @@ function Login() {
     let handleSubmit = async (e)=>{
       e.preventDefault()
         let userDetails = {email,password}      
-        let res = await axios.post("http://localhost:8000/api/login",userDetails,
+        let res = await axios.post("https://imdb-backend-e4xg.onrender.com/api/login",userDetails,
             {withCredentials:true}
         )
         alert(res.data.message) 

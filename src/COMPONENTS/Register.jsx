@@ -51,7 +51,7 @@ function Register() {
         try {
             
         
-        let res = await axios.post("http://localhost:8000/api/userRegister",formData,{
+        let res = await axios.post("https://imdb-backend-e4xg.onrender.com/api/userRegister",formData,{
     headers: {
       "Content-Type": "multipart/form-data"
     }

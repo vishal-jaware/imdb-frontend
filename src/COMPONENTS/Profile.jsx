@@ -9,7 +9,7 @@ function Profile() {
     const fetchProfile = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/profile",
+          "https://imdb-backend-e4xg.onrender.com/api/profile",
           { withCredentials: true }
         );
         setUser(res.data.user);
@@ -32,7 +32,7 @@ function Profile() {
   const handleRemove = async (movieId) => {
   try {
     await axios.delete(
-      `http://localhost:8000/api/watchlist/${movieId}`,
+      `https://imdb-backend-e4xg.onrender.com/api/watchlist/${movieId}`,
       { withCredentials: true }
     );
 
@@ -56,7 +56,7 @@ function Profile() {
         <img
           src={
             user.image
-              ? `http://localhost:8000/uploads/${user.image}`
+              ? `https://imdb-backend-e4xg.onrender.com/uploads/${user.image}`
               : "https://via.placeholder.com/150"
           }
           alt="Profile"

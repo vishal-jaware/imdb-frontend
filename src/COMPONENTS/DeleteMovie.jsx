@@ -4,7 +4,7 @@ export const deleteMovie = async (id) => {
   try {
 
     const res = await axios.delete(
-      `http://localhost:8000/api/deletemovie/${id}`,
+      `https://imdb-backend-e4xg.onrender.com/api/deletemovie/${id}`,
       {
         withCredentials: true
       }
