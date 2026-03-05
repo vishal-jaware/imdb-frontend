@@ -37,7 +37,7 @@ function Home() {
 const fetchTopRated = async () => {
   try {
     let res = await axios.get(
-      "https://imdb-backend-e4xg.onrender.com/api/movies/top-rated"
+      "https://imdb-backend-e4xg.onrender.com/movies/top-rated"
     );
     setTopRated(res.data.movies);
   } catch (error) {
