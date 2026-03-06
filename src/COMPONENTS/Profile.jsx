@@ -16,7 +16,7 @@ function Profile() {
         console.log(user);
         
       } catch (error) {
-  cconsole.log("PROFILE ERROR:", error.response?.data || error.message);
+  console.log("PROFILE ERROR:", error.response?.data || error.message);
 }
     };
 
