@@ -1,10 +1,13 @@
 import axios from "axios"
-
+import { useContext } from "react"
+import { productContext } from "./ContextApi"
 export const deleteMovie = async (id) => {
+
+  let {backUrl} = useContext(productContext)
   try {
 
     const res = await axios.delete(
-      `https://imdb-backend-e4xg.onrender.com/api/deletemovie/${id}`,
+      `${backUrl}/deletemovie/${id}`,
       {
         withCredentials: true
       }

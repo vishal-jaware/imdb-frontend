@@ -21,6 +21,8 @@ function Nav() {
 
         <div className="collapse navbar-collapse" id="navbarContent">
           <ul className="navbar-nav ms-auto align-items-center text-center">
+                        {user && (
+                          <>
             <li className="nav-item">
               <NavLink to="/" className="nav-link px-3 text-light">
                 Home
@@ -38,6 +40,8 @@ function Nav() {
                 Profile
               </NavLink>
             </li>
+            </>
+            )}
 
             {!user && (
               <li className="nav-item">

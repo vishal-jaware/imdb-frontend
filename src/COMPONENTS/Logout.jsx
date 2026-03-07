@@ -1,8 +1,12 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { productContext } from "./ContextApi";
 
 function Logout() {
+
+  let {backUrl} = useContext(productContext)
 
   const navigate = useNavigate();
 
@@ -10,7 +14,7 @@ function Logout() {
     const logoutUser = async () => {
       try {
         const res = await axios.post(
-          "https://imdb-backend-e4xg.onrender.com/api/userlogout",
+          `${backUrl}/userlogout`,
           {},
           { withCredentials: true }
         );

@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { useContext } from "react"
+import { productContext } from "./ContextApi"
 
 function AddMovie(){
+
+    
+let {backUrl} = useContext(productContext)
 
 const [movies,setMovies] = useState([])
 const [editId,setEditId] = useState(null)
@@ -37,7 +42,7 @@ const fetchMovies = async ()=>{
 try{
 
 let res = await axios.get(
-`https://imdb-backend-e4xg.onrender.com/api/movies?page=${page}&limit=12&search=${search}`
+`${backUrl}/movies?page=${page}&limit=12&search=${search}`
 )
 
 setMovies(res.data.movies)
@@ -70,7 +75,7 @@ try{
 if(editId){
 
 await axios.put(
-`https://imdb-backend-e4xg.onrender.com/api/updatemovie/${editId}`,
+`${backUrl}/updatemovie/${editId}`,
 movie,
 {withCredentials:true}
 )
@@ -81,7 +86,7 @@ setEditId(null)
 }else{
 
 await axios.post(
-"https://imdb-backend-e4xg.onrender.com/api/addmovie",
+`${backUrl}/addmovie`,
 movie,
 {withCredentials:true}
 )
@@ -106,7 +111,7 @@ const handleDelete = async(id)=>{
 try{
 
 await axios.delete(
-`https://imdb-backend-e4xg.onrender.com/api/deletemovie/${id}`,
+`${backUrl}/deletemovie/${id}`,
 {withCredentials:true}
 )
 

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
-
+import { productContext } from "./ContextApi";
+import { useContext } from "react";
 
 function Register() {
+
+  let {backUrl} = useContext(productContext)
 
     let [userData,setUserData] = useState({
         fullname:"",
@@ -51,7 +54,7 @@ function Register() {
         try {
             
         
-        let res = await axios.post("https://imdb-backend-e4xg.onrender.com/api/userRegister",formData,{
+        let res = await axios.post(`${backUrl}/userRegister`,formData,{
     headers: {
       "Content-Type": "multipart/form-data"
     }

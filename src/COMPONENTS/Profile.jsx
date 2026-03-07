@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { productContext } from "./ContextApi";
 
 function Profile() {
+
+  let {backUrl} = useContext(productContext)
 
   const [user, setUser] = useState(null);
 
@@ -9,7 +13,7 @@ function Profile() {
     const fetchProfile = async () => {
       try {
         const res = await axios.get(
-          "https://imdb-backend-e4xg.onrender.com/api/profile",
+          `${backUrl}/profile`,
           { withCredentials: true }
         );
         setUser(res.data.user);
@@ -31,7 +35,7 @@ function Profile() {
   const handleRemove = async (movieId) => {
   try {
     await axios.delete(
-      `https://imdb-backend-e4xg.onrender.com/api/watchlist/${movieId}`,
+      `${backUrl}/watchlist/${movieId}`,
       { withCredentials: true }
     );
 

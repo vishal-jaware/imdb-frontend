@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { productContext } from "./ContextApi";
 
 function Home() {
+  let {backUrl} = useContext(productContext)
   const [movies, setMovies] = useState([]);
   const [topRated, setTopRated] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -23,7 +25,7 @@ function Home() {
   const fetchMovies = async () => {
     try {
       let res = await axios.get(
-        `https://imdb-backend-e4xg.onrender.com/api/movies?page=${currentPage}&limit=12&search=${search}`,
+        `${backUrl}/movies?page=${currentPage}&limit=12&search=${search}`,
       );
 
       setMovies(res.data.movies);
@@ -36,7 +38,7 @@ function Home() {
   //  FETCH TOP RATED
   const fetchTopRated = async () => {
     try {
-      let res = await axios.get("https://imdb-backend-e4xg.onrender.com/api/movies/top-rated");
+      let res = await axios.get(`${backUrl}/movies/top-rated`);
       setTopRated(res.data.movies);
     } catch (error) {
       console.log(error);
@@ -53,7 +55,7 @@ function Home() {
   const addToWatchlist = async (movie) => {
     try {
       const res = await axios.post(
-  `https://imdb-backend-e4xg.onrender.com/api/watchlist/${movie._id}`,
+  `${backUrl}/watchlist/${movie._id}`,
   {},
   { withCredentials: true }
       );
